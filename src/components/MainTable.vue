@@ -3,9 +3,10 @@
     <vxe-table
       border
       :data="tableData"
-      height="100vh"
+      height="890"
       :virtual-y-config="{ enabled: false }"
       :span-method="customSpanMethod"
+      :edit-config="{ trigger: 'click', mode: 'cell' }"
     >
       <!-- 修复序号列：自定义序号，按逻辑行1-10显示 -->
       <vxe-column title="序号" width="50" align="center">
@@ -184,7 +185,7 @@ const customSpanMethod = ({ row, _rowIndex, column, visibleData }) => {
 
 /* 表头样式 */
 :deep(.vxe-table--header-wrapper) {
-  background-color: #f5f7fa !important;
+  background-color: #f5f7fa;
 }
 :deep(.vxe-table--header-border-line) {
   border-bottom: 2px solid #e8eaec;
@@ -212,6 +213,5 @@ const customSpanMethod = ({ row, _rowIndex, column, visibleData }) => {
   padding: 1px !important;
 }
 :deep(.vxe-table--header) {
-
 }
 </style>

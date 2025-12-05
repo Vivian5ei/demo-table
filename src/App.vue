@@ -6,19 +6,33 @@ import MainTable from './components/MainTable.vue'
 
 <template>
   <div class="wrapper">
-    <MainTable />
-    <!-- <Oven /> -->
+    <div class="container">
+      <MainTable class="component" />
+      <Oven class="component" />
+    </div>
   </div>
 </template>
 
 <style scoped>
 
 .wrapper {
-  width: 1920px;
-  /* display: flex; */
-  overflow: auto;
-  /* place-items: flex-start; */
-  /* gap: 20px; */
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* 整个容器可以滚动 */
   /* background-color: pink; */
+}
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: fit-content;
+  overflow: auto;
+  /* background-color: pink; */
+  padding: 10px;
+  height: 100%;
+}
+
+.component {
+  flex-shrink: 0;
+  height: 100%;
 }
 </style>

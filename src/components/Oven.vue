@@ -2,11 +2,11 @@
   <div>
     <vxe-table
       border
-      height="100vh"
+      height="890"
       :virtual-y-config="{ enabled: false }"
       :span-method="rowspanMethod"
       :data="tableData"
-      :edit-config="{ trigger: 'click', mode: 'cell',activeMethod: activeEditMethod }"
+      :edit-config="{ trigger: 'click', mode: 'cell', activeMethod: activeEditMethod }"
     >
       <vxe-colgroup title="">
         <template #header>
@@ -315,7 +315,6 @@ const activeEditMethod = ({ row, column }) => {
   return true
 }
 
-
 // 核心：三层合并方法（温度控制器→1st/2nd→区域） + 额外行的横向合并与设定值/实际值合并
 const rowspanMethod = ({ row, _rowIndex, column, visibleData }) => {
   const field = column.field
@@ -487,7 +486,7 @@ initTableData()
 
 /* 适配换行文本的行高 */
 :deep(.vxe-table--body .vxe-cell div) {
-  line-height: 1.4;
+  line-height: 1.77;
   padding: 4px 0;
 }
 
@@ -498,6 +497,7 @@ initTableData()
 
 /* 父级表头垂直居中 */
 :deep(.vxe-table--header .vxe-header--column .vxe-cell) {
-  line-height: 40px;
+  /* line-height: 40px; */
+  height: 57px;
 }
 </style>
