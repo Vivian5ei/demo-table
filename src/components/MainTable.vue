@@ -3,7 +3,8 @@
     <vxe-table
       border
       :data="tableData"
-      height="890"
+      height="907"
+      :cell-config="{ height: 25.5 }"
       :virtual-y-config="{ enabled: false }"
       :span-method="customSpanMethod"
       :edit-config="{ trigger: 'click', mode: 'cell' }"
@@ -18,12 +19,12 @@
       <vxe-column field="type" title="产品类别" width="60"></vxe-column>
       <vxe-column field="TUNum" title="T/U数量" width="60"></vxe-column>
       <vxe-colgroup title="Jig类型" header-align="center">
-        <vxe-column field="confirm" title="确认" width="50"></vxe-column>
+        <vxe-column field="confirm" title="确认" width="70"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="铜膏" header-align="center">
         <vxe-column field="thermalPasteType" title="铜膏类型" width="60"></vxe-column>
-        <vxe-column field="LotNo" title="Lot No."></vxe-column>
-        <vxe-column field="canNum" title="罐号"></vxe-column>
+        <vxe-column field="LotNo" title="Lot No." width="80"></vxe-column>
+        <vxe-column field="canNum" title="罐号" width="80"></vxe-column>
       </vxe-colgroup>
       <vxe-column field="programSelection" title="程式选择" width="60"></vxe-column>
       <vxe-column field="oscFreq" title="震荡频率" width="50"></vxe-column>
@@ -202,7 +203,7 @@ const customSpanMethod = ({ row, _rowIndex, column, visibleData }) => {
 /* 适配换行文本的行高 */
 :deep(.vxe-table--body .vxe-cell div) {
   line-height: 1.4;
-  padding: 4px 0;
+  /* padding: 4px 0; */
 }
 
 /* 父级表头垂直居中 */
@@ -210,8 +211,11 @@ const customSpanMethod = ({ row, _rowIndex, column, visibleData }) => {
   /* line-height: 20px; */
 }
 :deep(.vxe-body--column) {
-  padding: 1px !important;
+  /* padding: 1px !important; */
 }
 :deep(.vxe-table--header) {
+}
+:deep(.vxe-table--render-default.vxe-editable .vxe-body--column) {
+  padding: 0px !important;
 }
 </style>

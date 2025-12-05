@@ -2,7 +2,7 @@
   <div>
     <vxe-table
       border
-      height="890"
+      height="907"
       :virtual-y-config="{ enabled: false }"
       :span-method="rowspanMethod"
       :data="tableData"
@@ -486,7 +486,7 @@ initTableData()
 
 /* 适配换行文本的行高 */
 :deep(.vxe-table--body .vxe-cell div) {
-  line-height: 1.77;
+  line-height: 1.26;
   padding: 4px 0;
 }
 

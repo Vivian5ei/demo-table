@@ -2,10 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Oven from './components/Oven.vue'
 import MainTable from './components/MainTable.vue'
+import Header from './components/Header.vue'
 </script>
 
 <template>
   <div class="wrapper">
+    <div class="container-title">
+      <Header class="component" />
+    </div>
     <div class="container">
       <MainTable class="component" />
       <Oven class="component" />
@@ -19,6 +23,15 @@ import MainTable from './components/MainTable.vue'
   width: 100vw;
   height: 100vh;
   overflow: auto; /* 整个容器可以滚动 */
+  /* background-color: pink; */
+}
+
+.container-title {
+  /* width: 100vw;
+  display: flex; */
+  /* flex-wrap: nowrap; */
+  /* min-width: fit-content; */
+  /* overflow: auto; */
   /* background-color: pink; */
 }
 .container {
