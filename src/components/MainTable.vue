@@ -27,9 +27,9 @@
         <vxe-column field="canNum" title="罐号" width="80"></vxe-column>
       </vxe-colgroup>
       <vxe-column field="programSelection" title="程式选择" width="60"></vxe-column>
-      <vxe-column field="oscFreq" title="震荡频率" width="50"></vxe-column>
-      <vxe-column field="oscClean" title="震荡清机" width="50"></vxe-column>
-      <vxe-column field="panelClean" title="换面面板清洁" width="50"></vxe-column>
+      <vxe-column field="oscFreq" title="震荡频率" width="50" :edit-render="{ name: 'input' }"></vxe-column>
+      <vxe-column field="oscClean" title="震荡清机" width="50" :edit-render="{ name: 'input' }"></vxe-column>
+      <vxe-column field="panelClean" title="换面面板清洁" width="50" :edit-render="{ name: 'input' }"></vxe-column>
       <vxe-colgroup title="膏深（*10μm）" header-align="center">
         <vxe-colgroup title="1st side" header-align="center">
           <vxe-column field="attr3" title="左" width="50"></vxe-column>
@@ -51,11 +51,11 @@
         <vxe-column field="rightBottom" title="右下" width="80"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="浸镀前目检" header-align="center">
-        <vxe-column field="pasteTypeCheck" title="表缺" width="100"></vxe-column>
-        <vxe-column field="lotNoCheck" title="Others" width="80"></vxe-column>
+        <vxe-column field="pasteTypeCheck" title="表缺" width="100" :edit-render="{ name: 'input' }"></vxe-column>
+        <vxe-column field="lotNoCheck" title="Others" width="80" :edit-render="{ name: 'input' }"></vxe-column>
       </vxe-colgroup>
-      <vxe-column field="remark" title="备注" width="80"></vxe-column>
-      <vxe-column field="tearClean" title="撕料清机" width="80"></vxe-column>
+      <vxe-column field="remark" title="备注" width="80" :edit-render="{ name: 'input' }"></vxe-column>
+      <vxe-column field="tearClean" title="撕料清机" width="80" :edit-render="{ name: 'input' }"></vxe-column>
     </vxe-table>
   </div>
 </template>

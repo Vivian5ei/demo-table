@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import Oven from './components/Oven.vue'
 import MainTable from './components/MainTable.vue'
 import Header from './components/Header.vue'
+import MachineClear from './components/MachineClear.vue'
 </script>
 
 <template>
@@ -13,6 +14,9 @@ import Header from './components/Header.vue'
     <div class="container">
       <MainTable class="component" />
       <Oven class="component" />
+    </div>
+    <div class="">
+      <MachineClear class="component" />
     </div>
   </div>
 </template>
@@ -41,7 +45,6 @@ import Header from './components/Header.vue'
   overflow: auto;
   /* background-color: pink; */
   padding: 10px;
-  height: 100%;
 }
 
 .component {
