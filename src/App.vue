@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Oven from './components/Oven.vue'
 </script>
 
 <template>
   <div class="wrapper">
-    <HelloWorld />
+    <!-- <Oven /> -->
+    <Oven />
   </div>
 </template>
 
@@ -15,5 +16,6 @@ import HelloWorld from './components/HelloWorld.vue'
   /* width: 786px; */
   display: flex;
   place-items: flex-start;
+  gap: 20px;
 }
 </style>

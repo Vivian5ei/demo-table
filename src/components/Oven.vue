@@ -6,7 +6,7 @@
       :virtual-y-config="{ enabled: false }"
       :span-method="rowspanMethod"
       :data="tableData"
-      :edit-config="{trigger: 'dblclick', mode: 'cell'}"
+      :edit-config="{ trigger: 'click', mode: 'cell',activeMethod: activeEditMethod }"
     >
       <vxe-colgroup title="">
         <template #header>
@@ -26,9 +26,16 @@
           <template #header>
             <div style="text-align: center">
               <div>频率</div>
+              <div style="font-size: 12px">Frequency</div>
             </div>
           </template>
-          <vxe-column field="freq1" title="F1" width="110" header-class-name="no-sub-header" :edit-render="{ name: 'input' }">
+          <vxe-column
+            field="freq1"
+            title="F1"
+            width="110"
+            header-class-name="no-sub-header"
+            :edit-render="{ name: 'input' }"
+          >
             <template #default="{ row }">
               <div v-if="row.paramKey"></div>
               <div v-else v-html="formatName(row.freq1)"></div>
@@ -50,9 +57,14 @@
               <div style="font-size: 12px">SV (℃)</div>
             </div>
           </template>
-          <vxe-column field="svMin" title="Min" width="220" header-class-name="no-sub-header" :edit-render="{ name: 'input' }" >
+          <vxe-column
+            field="svMin"
+            title="Min"
+            width="220"
+            header-class-name="no-sub-header"
+            :edit-render="{ name: 'input' }"
+          >
             <template #default="{ row }">
-              <!-- 气枪/压平机类型：svMin 承载合并后的显示（实际值 或 空） -->
               <div
                 v-if="
                   row.paramKey &&
@@ -62,25 +74,28 @@
                 {{ row.svMin }}
               </div>
 
-              <!-- 冰水机温度：第一行显示 svMin，第二行空 -->
               <div v-else-if="row.paramKey && row.paramKey === 'chillerTemp'">
                 {{ row.svMin }}
               </div>
 
-              <!-- 钢带速度：显示值 -->
               <div v-else-if="row.paramKey && row.paramKey === 'beltSpeed'">
                 {{ row.svMin }}
               </div>
 
-              <!-- 通常行 -->
+              <!-- 通常行不编辑-->
               <div v-else>
                 {{ row.svMin }}
               </div>
             </template>
           </vxe-column>
-          <vxe-column field="svMax" title="Max" width="120" header-class-name="no-sub-header"  :edit-render="{ name: 'input' }">
+          <vxe-column
+            field="svMax"
+            title="Max"
+            width="120"
+            header-class-name="no-sub-header"
+            :edit-render="{ name: 'input' }"
+          >
             <template #default="{ row }">
-              <!-- 气枪/压平机类型：svMax 被合并，留空（由 svMin colspan 展示） -->
               <div
                 v-if="
                   row.paramKey &&
@@ -88,7 +103,6 @@
                 "
               ></div>
 
-              <!-- 冰水机温度：svMax 与 name4 合并，svMax 展示合并内容（第一行显示 2） -->
               <div v-else-if="row.paramKey && row.paramKey === 'chillerTemp'">
                 {{ row.svMax }}
               </div>
@@ -101,8 +115,7 @@
           </vxe-column>
         </vxe-colgroup>
 
-        <!-- 实际值列 -->
-        <vxe-column field="name4" title="实际值" width="110" :edit-render="{ name: 'input' }" >
+        <vxe-column field="name4" title="实际值" width="110" :edit-render="{ name: 'input' }">
           <template #header>
             <div style="text-align: center">
               <div>实际值</div>
@@ -117,7 +130,6 @@
               "
             ></div>
 
-            <!-- 冰水机温度：name4 被 svMax 合并，留空 -->
             <div v-else-if="row.paramKey && row.paramKey === 'chillerTemp'"></div>
 
             <!-- 其他（包含钢带速度） -->
@@ -137,7 +149,7 @@ import XEUtils from 'xe-utils'
 const tableData = ref([])
 
 // 定义层级数据
-const topGroupName = '温度控制器' // 顶级分组（合并12行）
+const topGroupName = '温度控制器'
 const subGroupList = [
   {
     key: '1st',
@@ -295,6 +307,14 @@ const generateTableData = () => {
 
   return list
 }
+
+const activeEditMethod = ({ row, column }) => {
+  if (column.field === 'svMin') {
+    return !!row.paramKey
+  }
+  return true
+}
+
 
 // 核心：三层合并方法（温度控制器→1st/2nd→区域） + 额外行的横向合并与设定值/实际值合并
 const rowspanMethod = ({ row, _rowIndex, column, visibleData }) => {
