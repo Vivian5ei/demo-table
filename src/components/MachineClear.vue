@@ -8,7 +8,7 @@
       :show-header="false"
     >
       <vxe-colgroup title="清机记录" field="group1" header-align="center">
-        <vxe-column field="record" title="清机记录"></vxe-column>
+        <vxe-column field="record" title="清机记录" width="40"></vxe-column>
         <vxe-column field="title" title="标题"></vxe-column>
         <vxe-column field="times11" title="次数1-1"></vxe-column>
         <vxe-column field="times12" title="次数1-2"></vxe-column>
@@ -19,7 +19,7 @@
         <vxe-column field="unit1" title="%1"></vxe-column>
         <vxe-column field="code2" title="代码2"></vxe-column>
         <vxe-column field="unit2" title="%2"></vxe-column>
-        <vxe-column field="code3" title="代码3"></vxe-column>
+        <vxe-column field="code3" title="代码3" width="370"></vxe-column>
         <vxe-column field="unit3" title="%3"></vxe-column>
         <vxe-column field="sign" title="交接班记录填写"></vxe-column>
         <vxe-column field="time" title="实际时间"></vxe-column>
@@ -41,7 +41,7 @@ const tableData = ref([
     times12: '第1次-第2面',
     times21: '第2次-第1面',
     times22: '第2次-第2面',
-    uptimeLoss: 'Uptime Loss记录：___________________',
+    uptimeLoss: 'Uptime Loss记录：________________________',
     sex: 'Man',
     sign: '交接班记录填写',
     age: 46,

@@ -15,7 +15,7 @@
             <div style="font-size: 12px">(一次/6小时/每班)</div>
           </div>
         </template>
-        <vxe-column field="name1" title="" width="110">
+        <vxe-column field="name1" title="" width="60">
           <template #default="{ row }">
             <div v-if="row.paramKey">{{ row.paramName }}</div>
             <div v-else>{{ row.name1 }}</div>
@@ -32,7 +32,7 @@
           <vxe-column
             field="freq1"
             title="F1"
-            width="110"
+            width="60"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >
@@ -41,7 +41,7 @@
               <div v-else v-html="formatName(row.freq1)"></div>
             </template>
           </vxe-column>
-          <vxe-column field="freq2" title="F2" width="110" header-class-name="no-sub-header">
+          <vxe-column field="freq2" title="F2" width="40" header-class-name="no-sub-header">
             <template #default="{ row }">
               <div v-if="row.paramKey"></div>
               <div v-else v-html="formatName(row.freq2)"></div>
@@ -60,7 +60,7 @@
           <vxe-column
             field="svMin"
             title="Min"
-            width="220"
+            width="201"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >
@@ -91,7 +91,7 @@
           <vxe-column
             field="svMax"
             title="Max"
-            width="120"
+            width="90"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >

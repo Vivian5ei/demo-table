@@ -49,7 +49,6 @@ const formData = reactive({
 .header-left {
   display: flex;
   flex-direction: column;
-  gap: 5px;
   font-size: 18px;
 }
 .left-box {

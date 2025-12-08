@@ -15,7 +15,7 @@ import MachineClear from './components/MachineClear.vue'
       <MainTable class="component" />
       <Oven class="component" />
     </div>
-    <div class="">
+    <div class="container-record">
       <MachineClear class="component" />
     </div>
   </div>
@@ -31,22 +31,22 @@ import MachineClear from './components/MachineClear.vue'
 }
 
 .container-title {
-  /* width: 100vw;
-  display: flex; */
-  /* flex-wrap: nowrap; */
-  /* min-width: fit-content; */
-  /* overflow: auto; */
-  /* background-color: pink; */
 }
 .container {
   display: flex;
   flex-wrap: nowrap;
   min-width: fit-content;
   overflow: auto;
-  /* background-color: pink; */
   padding: 10px;
 }
-
+.container-record {
+  width: 100%;
+   display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+  overflow: auto;
+  padding: 10px;
+}
 .component {
   flex-shrink: 0;
   height: 100%;
