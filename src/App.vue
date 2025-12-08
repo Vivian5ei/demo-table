@@ -4,6 +4,7 @@ import Oven from './components/Oven.vue'
 import MainTable from './components/MainTable.vue'
 import Header from './components/Header.vue'
 import MachineClear from './components/MachineClear.vue'
+import Maintenance from './components/Maintenance.vue'
 </script>
 
 <template>
@@ -17,6 +18,9 @@ import MachineClear from './components/MachineClear.vue'
     </div>
     <div class="container-record">
       <MachineClear class="component" />
+    </div>
+    <div class="container-record">
+      <Maintenance class="component" />
     </div>
   </div>
 </template>
