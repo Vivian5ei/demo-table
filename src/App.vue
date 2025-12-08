@@ -29,30 +29,30 @@ import Maintenance from './components/Maintenance.vue'
 
 .wrapper {
   width: 100vw;
-  height: 100vh;
-  overflow: auto; /* 整个容器可以滚动 */
-  /* background-color: pink; */
+  min-height: 100vh;
+  overflow-y: auto;
+  background-color: #fff;
 }
 
 .container-title {
+  width: 100%;
+  padding-right: 10px;
 }
+
 .container {
   display: flex;
-  flex-wrap: nowrap;
-  min-width: fit-content;
-  overflow: auto;
-  padding: 10px;
+  padding: 0 5px;
+  width: 100%;
 }
 .container-record {
   width: 100%;
-   display: flex;
-  flex-direction: column;
-  min-width: fit-content;
-  overflow: auto;
-  padding: 10px;
+  padding: 5px 6px;
 }
+
+/* 组件行为 */
 .component {
-  flex-shrink: 0;
-  height: 100%;
+  width: 100%; 
+  flex-shrink: 1;
 }
+
 </style>

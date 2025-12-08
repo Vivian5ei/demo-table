@@ -2,17 +2,23 @@
   <div>
     <vxe-table
       border
-      height="907"
+      height="530"
+      size="mini"
       :virtual-y-config="{ enabled: false }"
       :span-method="rowspanMethod"
       :data="tableData"
-      :edit-config="{ trigger: 'click', mode: 'cell', activeMethod: activeEditMethod }"
+      class="custom-header-height"
+      :cell-config="{ height: 28.9 }"
+      :edit-config="{ trigger: 'click', mode: 'cell', beforeEditMethod: activeEditMethod }"
+      :style="{
+        '--vxe-ui-table-border-color': '#000'
+      }"
     >
       <vxe-colgroup title="">
         <template #header>
           <div style="text-align: center">
             <div>烘焙炉</div>
-            <div style="font-size: 12px">(一次/6小时/每班)</div>
+            <div style="font-size: 8px">(一次/6小时/每班)</div>
           </div>
         </template>
         <vxe-column field="name1" title="" width="60">
@@ -26,13 +32,13 @@
           <template #header>
             <div style="text-align: center">
               <div>频率</div>
-              <div style="font-size: 12px">Frequency</div>
+              <div style="font-size: 8px">Frequency</div>
             </div>
           </template>
           <vxe-column
             field="freq1"
             title="F1"
-            width="60"
+            width="70"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >
@@ -41,7 +47,7 @@
               <div v-else v-html="formatName(row.freq1)"></div>
             </template>
           </vxe-column>
-          <vxe-column field="freq2" title="F2" width="40" header-class-name="no-sub-header">
+          <vxe-column field="freq2" title="F2" width="30" header-class-name="no-sub-header">
             <template #default="{ row }">
               <div v-if="row.paramKey"></div>
               <div v-else v-html="formatName(row.freq2)"></div>
@@ -54,7 +60,7 @@
           <template #header>
             <div style="text-align: center">
               <div>设定值</div>
-              <div style="font-size: 12px">SV (℃)</div>
+              <div style="font-size: 8px">SV (℃)</div>
             </div>
           </template>
           <vxe-column
@@ -119,7 +125,7 @@
           <template #header>
             <div style="text-align: center">
               <div>实际值</div>
-              <div style="font-size: 12px">PV (℃)</div>
+              <div style="font-size: 8px">PV (℃)</div>
             </div>
           </template>
           <template #default="{ row }">
@@ -461,11 +467,78 @@ initTableData()
 </script>
 
 <style scoped>
+/* 重置所有高度相关样式 */
+:deep(.vxe-table) {
+  font-size: 8px;
+  color: #000;
+}
+/* 关键：设置表头容器的总高度（根据表头层级计算） */
+.custom-header-height :deep(.vxe-table--header-wrapper) {
+  /* 多级表头总高度 = 行数 × 行高 + 边框 */
+  height: auto !important; /* 改为auto自动适应 */
+  min-height: 40px; /* 设置最小高度确保显示 */
+  color: #000;
+  background: #fff !important;
+}
+
+/* 表头单元格自适应高度 */
+.custom-header-height :deep(.vxe-table--header .vxe-header--column) {
+  height: auto !important;
+}
+
+/* 表头单元格内容居中 */
+.custom-header-height :deep(.vxe-table--header .vxe-cell) {
+  height: 100% !important;
+  min-height: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-size: 8px;
+  line-height: 1.2;
+  white-space: normal; /* 允许换行 */
+  word-break: break-word;
+}
+
+/* 数据行单元格样式 */
+.custom-header-height :deep(.vxe-table--body .vxe-body--column) {
+  height: 15px !important;
+  line-height: 15px !important;
+  padding: 0 4px !important;
+  font-size: 8px;
+}
+
+/* 单元格内容居中 */
+:deep(.vxe-table--header) .vxe-header--column,
+:deep(.vxe-table--body) .vxe-body--column {
+  text-align: center;
+  vertical-align: middle;
+}
+
 /* 全局居中 */
 :deep(.vxe-table--header) .vxe-header--column,
 :deep(.vxe-table--body) .vxe-body--column {
   text-align: center;
   vertical-align: middle;
+}
+
+/* 表头背景色 */
+:deep(.vxe-table--header-wrapper) {
+  background-color: #fff;
+  color: #000;
+}
+
+/* 表头边框 */
+:deep(.vxe-table--header-border-line) {
+  border-bottom: 2px solid #e8eaec;
+}
+
+/* 输入框样式 */
+:deep(.vxe-cell .vxe-default-input) {
+  height: 12px !important;
+  line-height: 12px !important;
+  padding: 0 4px;
+  font-size: 8px;
 }
 
 /* 表头样式 */
