@@ -1,17 +1,17 @@
 <template>
   <div>
     <vxe-table
-    size="mini"
+      size="mini"
       border
       :data="tableData"
-      height="530"
-      :cell-config="{ height: 15.67 }"
+      height="618"
+      :cell-config="{ height: 18.6 }"
       :virtual-y-config="{ enabled: false }"
       :span-method="customSpanMethod"
       :edit-config="{ trigger: 'click', mode: 'cell' }"
       class="custom-header-height"
       :style="{
-        '--vxe-ui-table-border-color': '#000'
+        '--vxe-ui-table-border-color': '#000',
       }"
     >
       <!-- 修复序号列：自定义序号，按逻辑行1-10显示 -->
@@ -21,21 +21,36 @@
         </template>
       </vxe-column>
       <vxe-column field="orderNo" title="流程单" width="120"></vxe-column>
-      <vxe-column field="type" title="产品类别" width="50"></vxe-column>
-      <vxe-column field="TUNum" title="T/U数量" width="50"></vxe-column>
+      <vxe-column field="type" title="产品类别" width="60"></vxe-column>
+      <vxe-column field="TUNum" title="T/U数量" width="60"></vxe-column>
       <vxe-colgroup title="Jig类型" header-align="center">
-        <vxe-column field="confirm" title="确认" width="40"></vxe-column>
+        <vxe-column field="confirm" title="确认" width="50"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="铜膏" header-align="center">
-        <vxe-column field="thermalPasteType" title="铜膏类型" width="50"></vxe-column>
-        <vxe-column field="LotNo" title="Lot No." width="80"></vxe-column>
+        <vxe-column field="thermalPasteType" title="铜膏类型" width="60"></vxe-column>
+        <vxe-column field="LotNo" title="Lot No." width="100"></vxe-column>
         <vxe-column field="canNum" title="罐号" width="60"></vxe-column>
       </vxe-colgroup>
-      <vxe-column field="programSelection" title="程式选择" width="80"></vxe-column>
-      <vxe-column field="oscFreq" title="震荡频率" width="40" :edit-render="{ name: 'input' }"></vxe-column>
-      <vxe-column field="oscClean" title="震荡清机" width="40" :edit-render="{ name: 'input' }"></vxe-column>
-      <vxe-column field="panelClean" title="换面面板清洁" width="40" :edit-render="{ name: 'input' }"></vxe-column>
-      <vxe-colgroup title="膏深（*10μm）" header-align="center">
+      <vxe-column field="programSelection" title="程式选择" width="110"></vxe-column>
+      <vxe-column
+        field="oscFreq"
+        title="震荡频率"
+        width="45"
+        :edit-render="{ name: 'input' }"
+      ></vxe-column>
+      <vxe-column
+        field="oscClean"
+        title="震荡清机"
+        width="45"
+        :edit-render="{ name: 'input' }"
+      ></vxe-column>
+      <vxe-column
+        field="panelClean"
+        title="换面面板清洁"
+        width="45"
+        :edit-render="{ name: 'input' }"
+      ></vxe-column>
+      <vxe-colgroup title="膏深（单位：*10μm）" header-align="center">
         <vxe-colgroup title="1st side" header-align="center">
           <vxe-column field="attr3" title="左" width="30"></vxe-column>
           <vxe-column field="attr4" title="中" width="30"></vxe-column>
@@ -47,20 +62,43 @@
           <vxe-column field="attr8" title="右" width="30"></vxe-column>
         </vxe-colgroup>
       </vxe-colgroup>
-      <vxe-colgroup title="首件（㎜）" header-align="center">
-        <vxe-column field="electrodeLen" title="端电极长度" width="50"></vxe-column>
-        <vxe-column field="leftTop" title="左上" width="45"></vxe-column>
-        <vxe-column field="leftBottom" title="左下" width="45"></vxe-column>
-        <vxe-column field="middle" title="中间" width="45"></vxe-column>
-        <vxe-column field="rightTop" title="右上" width="45"></vxe-column>
-        <vxe-column field="rightBottom" title="右下" width="45"></vxe-column>
+      <vxe-colgroup
+        title="首件（第一面L2,第二面L3) &nbsp&nbsp&nbsp(单位：㎜）"
+        header-align="center"
+      >
+        <vxe-column field="electrodeLen" title="端电极长度" width="60"></vxe-column>
+        <vxe-column field="leftTop" title="左上" width="60"></vxe-column>
+        <vxe-column field="leftBottom" title="左下" width="60"></vxe-column>
+        <vxe-column field="middle" title="中间" width="60"></vxe-column>
+        <vxe-column field="rightTop" title="右上" width="60"></vxe-column>
+        <vxe-column field="rightBottom" title="右下" width="60"></vxe-column>
       </vxe-colgroup>
       <vxe-colgroup title="浸镀前目检" header-align="center">
-        <vxe-column field="pasteTypeCheck" title="表缺" width="44" :edit-render="{ name: 'input' }"></vxe-column>
-        <vxe-column field="lotNoCheck" title="Others" width="50" :edit-render="{ name: 'input' }"></vxe-column>
+        <vxe-column
+          field="pasteTypeCheck"
+          title="表缺"
+          width="50"
+          :edit-render="{ name: 'input' }"
+        ></vxe-column>
+        <vxe-column
+          field="lotNoCheck"
+          title="Others"
+          width="54"
+          :edit-render="{ name: 'input' }"
+        ></vxe-column>
       </vxe-colgroup>
-      <vxe-column field="remark" title="备注" width="60" :edit-render="{ name: 'input' }"></vxe-column>
-      <vxe-column field="tearClean" title="撕料清机" width="40" :edit-render="{ name: 'input' }"></vxe-column>
+      <vxe-column
+        field="remark"
+        title="备注  Remark"
+        width="60"
+        :edit-render="{ name: 'input' }"
+      ></vxe-column>
+      <vxe-column
+        field="tearClean"
+        title="撕料清机"
+        width="40"
+        :edit-render="{ name: 'input' }"
+      ></vxe-column>
     </vxe-table>
   </div>
 </template>

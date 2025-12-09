@@ -25,7 +25,8 @@
     </div>
 
     <div class="table-header">
-      <h2>浸镀站生产管理表</h2>
+      <div>浸镀站生产管理表</div>
+      <div class="tip">Dipping Production Management Sheet</div>
     </div>
   </div>
 </template>
@@ -51,15 +52,15 @@ const formData = reactive({
   padding: 0 20px;
   font-family: 'Microsoft YaHei', sans-serif;
   border: 1px solid #000;
-  border-bottom:none;
+  border-bottom: none;
   margin: 0 5px;
-  
+  color: #000;
 }
 .header {
-    display: flex;
-    flex-direction: row;
-    width: 20%;
-    gap: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  gap: 40px;
 }
 .header-left {
   display: flex;
@@ -78,15 +79,20 @@ const formData = reactive({
   width: 60px;
 }
 .table-header {
-  height: 80px;
-  line-height: 80px;
-  letter-spacing: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.table-header h2 {
+.table-header div:first-child {
   text-align: center;
-  font-size: 20px;
-  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 22px;
+  font-family: 'Microsoft YaHei', sans-serif;
+}
+.table-header .tip {
+  font-size: 12px;
   font-weight: bold;
 }
 </style>

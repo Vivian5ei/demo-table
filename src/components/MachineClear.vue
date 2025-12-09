@@ -6,7 +6,7 @@
       :data="tableData"
       :merge-cells="mergeCells"
       :show-header="false"
-      :cell-config="{ height: 28 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-height"
       :cell-style="cellStyle"
       :edit-config="{ trigger: 'click', mode: 'cell', beforeEditMethod: activeEditMethod }"

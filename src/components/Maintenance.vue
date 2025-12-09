@@ -4,7 +4,7 @@
       :data="tableData1"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       :header-cell-style="{ height: '10px' }"
       class="custom-header-table"
       :edit-config="{ trigger: 'click', mode: 'cell' }"
@@ -54,7 +54,7 @@
       :data="tableData2"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-table"
       :edit-config="{ trigger: 'click', mode: 'cell' }"
       :style="{
@@ -93,7 +93,7 @@
       :data="tableData3"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-table"
       :style="{
         '--vxe-ui-table-border-color': '#000',
@@ -109,7 +109,7 @@
       :data="tableData4"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-table"
       :style="{
         '--vxe-ui-table-border-color': '#000',
@@ -124,7 +124,7 @@
       :data="tableData5"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-table"
       :style="{
         '--vxe-ui-table-border-color': '#000',
@@ -139,7 +139,7 @@
       :data="tableData3"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-table"
       :style="{
         '--vxe-ui-table-border-color': '#000',
@@ -155,7 +155,7 @@
       :data="tableData4"
       border
       size="mini"
-      :cell-config="{ height: 25 }"
+      :cell-config="{ height: 20 }"
       class="custom-header-table"
       :style="{
         '--vxe-ui-table-border-color': '#000',
@@ -272,8 +272,8 @@ const tableData5 = ref([
 
 /* 设置每行表头的高度 */
 .custom-header-table :deep(.vxe-table--header .vxe-header--row) {
-  height: 27px !important; /* 每行高度 */
-  line-height: 27px !important;
+  height: 20px !important; /* 每行高度 */
+  line-height: 20px !important;
 }
 
 /* 表头单元格自适应高度 */

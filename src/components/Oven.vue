@@ -2,13 +2,13 @@
   <div>
     <vxe-table
       border
-      height="530"
+      height="618"
       size="mini"
       :virtual-y-config="{ enabled: false }"
       :span-method="rowspanMethod"
       :data="tableData"
       class="custom-header-height"
-      :cell-config="{ height: 28.9 }"
+      :cell-config="{ height: 34.4 }"
       :edit-config="{ trigger: 'click', mode: 'cell', beforeEditMethod: activeEditMethod }"
       :style="{
         '--vxe-ui-table-border-color': '#000'
@@ -21,7 +21,7 @@
             <div style="font-size: 8px">(一次/6小时/每班)</div>
           </div>
         </template>
-        <vxe-column field="name1" title="" width="60">
+        <vxe-column field="name1" title="" width="30">
           <template #default="{ row }">
             <div v-if="row.paramKey">{{ row.paramName }}</div>
             <div v-else>{{ row.name1 }}</div>
@@ -38,7 +38,7 @@
           <vxe-column
             field="freq1"
             title="F1"
-            width="70"
+            width="100"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >
@@ -66,7 +66,7 @@
           <vxe-column
             field="svMin"
             title="Min"
-            width="201"
+            width="101"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >
@@ -97,7 +97,7 @@
           <vxe-column
             field="svMax"
             title="Max"
-            width="90"
+            width="50"
             header-class-name="no-sub-header"
             :edit-render="{ name: 'input' }"
           >
@@ -121,7 +121,7 @@
           </vxe-column>
         </vxe-colgroup>
 
-        <vxe-column field="name4" title="实际值" width="110" :edit-render="{ name: 'input' }">
+        <vxe-column field="name4" title="实际值" width="50" :edit-render="{ name: 'input' }">
           <template #header>
             <div style="text-align: center">
               <div>实际值</div>
@@ -215,7 +215,7 @@ const generateTableData = () => {
     // 钢带速度（2行）
     {
       paramKey: 'beltSpeed',
-      paramName: '钢带速度',
+      paramName: '钢带速度（belt speed）一次/每班（计时单位为0.1S的烘烤炉设定值为：200，计时单位为1S的烘烤炉设定值为：20）',
       name1: '',
       freq1: '',
       freq2: '',
