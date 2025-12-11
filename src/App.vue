@@ -38,17 +38,17 @@ import { VxeUI } from 'vxe-table'
 }
 
 .container-title {
-  width: 100%;
+  max-width: 1920px;
   padding-right: 10px;
 }
 
 .container {
   display: flex;
   padding: 0 5px;
-  width: 100%;
+  max-width: 1920px;
 }
 .container-record {
-  width: 100%;
+  max-width: 1920px;
   padding: 5px 6px;
 }
 
